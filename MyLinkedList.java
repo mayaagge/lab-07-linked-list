@@ -13,7 +13,7 @@ public class MyLinkedList{
   public String get(int index){
     //Return the value at the specified index.
     if (index >= size || index < 0){
-      throw new IndexOutOfBoundsException("Check index!";
+      throw new IndexOutOfBoundsException("Check index!");
     }
     ListNode a = front;
     for (int i = 0; i < index; i++){
