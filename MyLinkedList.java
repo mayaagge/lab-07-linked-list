@@ -8,6 +8,7 @@ public class MyLinkedList{
   
   public int size(){
     //Returns the number of elements in this list.
+    return size;
   }
   public String get(int index){
     //Return the value at the specified index.
