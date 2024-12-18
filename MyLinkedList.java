@@ -12,16 +12,14 @@ public class MyLinkedList{
   }
   public String get(int index){
     //Return the value at the specified index.
-    ListNode a = new ListNode("");
     if (index >= size || index < 0){
-      return "Check index!";
+      throw new IndexOutOfBoundsException("Check index!";
     }
-    else{
-      for (int i = 0; i < index; i++){
-        a = a.next();
-      }
-      return a.getData();
+    ListNode a = front;
+    for (int i = 0; i < index; i++){
+      a = a.next();
     }
+    return a.getData();
   }
   
   public boolean add(String e){
