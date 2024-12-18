@@ -16,7 +16,7 @@ public class MyLinkedList{
     if (index > size || index < 0){
       return "Check index!";
     }
-    else if (index <= size && index >= 0){
+    else (index <= size && index >= 0){
       for (int i = 0; i < index; i++){
         a = a.next();
       }
