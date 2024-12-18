@@ -12,7 +12,7 @@ public class MyLinkedList{
   }
   public String get(int index){
     //Return the value at the specified index.
-    ListNode a = new ListNode;
+    ListNode a = new ListNode();
     if (index > size || index < 0){
       throw new IndexOutOfBoundsException();
     }
