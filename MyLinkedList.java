@@ -4,6 +4,8 @@ public class MyLinkedList{
 
   //You will only write the no argument Constructor, as you do not have a capacity.
   public MyLinkedList(){
+    front = new ListNode(null);
+    size = 0;
   }
   
   public int size(){
@@ -24,6 +26,13 @@ public class MyLinkedList{
   
   public boolean add(String e){
     //Appends the specified element to the end of this list.
+    ListNode temp = new ListNode(e);
+    ListNode a = front;
+    while(a.next() != null){
+      a = a.next();
+    }
+    a.setNext(temp);
+    size++;
     return true;
   }
 
