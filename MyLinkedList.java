@@ -52,7 +52,13 @@ public class MyLinkedList{
 
   public String toStringReversed(){
     //same as toString, but iterate from the back, using prev() "[C, B, A]" or "[]"
-    return "";
+    String d = "";
+    ListNode a = back;
+    while(a != null){
+      d += "[" + a.getData() + "]";
+      a = a.prev();
+    }
+    return d;
   }
   
    public void add(int index, String element){
