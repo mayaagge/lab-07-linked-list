@@ -13,7 +13,7 @@ public class MyLinkedList{
   public String get(int index){
     //Return the value at the specified index.
     ListNode a = new ListNode("");
-    if (index > size || index < 0){
+    if (index >= size || index < 0){
       return "Check index!";
     }
     else{
