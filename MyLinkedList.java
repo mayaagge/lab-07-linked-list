@@ -14,7 +14,7 @@ public class MyLinkedList{
     //Return the value at the specified index.
     ListNode a;
     if (index > size || index < 0){
-      throw new IndexOutOfBoundsException();
+      return "Check index!";
     }
     else if (index <= size && index >= 0){
       for (int i = 0; i < index; i++){
