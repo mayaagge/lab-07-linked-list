@@ -31,6 +31,9 @@ public class MyLinkedList{
     while(a.next() != null){
       a = a.next();
     }
+    if (temp == a) {
+      return false;
+    }
     a.setNext(temp);
     size++;
     return true;
