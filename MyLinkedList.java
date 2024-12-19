@@ -123,22 +123,6 @@ public class MyLinkedList{
     size--;
     return d;
   }
-    if (index < 0 || index >= size()) {
-      throw new IndexOutOfBoundsException("Check index!");
-    } else {
-      if(index == 0) { 
-        d = front.toString();
-      } else {
-          for (int i = 0; i < index - 1; i++) { 
-            front = front.next();
-          }
-          d = front.next().toString();
-          back = front.next().next();
-          front.setNext(back); 
-      }
-    }
-    return d;
-  }
   
   public boolean remove(String element){
     //Removes the first occurrence of the specified element from this list, if it is present.
