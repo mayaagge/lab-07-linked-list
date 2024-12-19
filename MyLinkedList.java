@@ -16,10 +16,11 @@ public class MyLinkedList{
     //Return the value at the specified index.
     if (index >= size || index < 0){
       throw new IndexOutOfBoundsException("Check index!");
-    }
-    ListNode a = front;
-    for (int i = 0; i < index; i++){
-      a = a.next();
+    } else{
+      ListNode a = front;
+      for (int i = 0; i < index; i++){
+        a = a.next();
+      }
     }
     return a.getData();
   }
@@ -28,15 +29,19 @@ public class MyLinkedList{
     //Appends the specified element to the end of this list.
     ListNode temp = new ListNode(e);
     ListNode a = front;
-    while(a.next() != null){
-      a = a.next();
+    if (e == null){
+      throw new NullPointerException("Cannot add null!");
+    }else if(s.equals("")){
+      throw new IllegalArgumentException("String cannot be empty!");
+    }else{
+      while(a.next() != null){
+        a = a.next();
+      }
+      a.setNext(temp);
+      size++;
+      return true;
     }
-    if (temp == a) {
-      return false;
-    }
-    a.setNext(temp);
-    size++;
-    return true;
+    return false;
   }
 
   public String toString(){
@@ -78,14 +83,55 @@ public class MyLinkedList{
    public String set(int index, String value){
     //Replaces the value at the specified index in this list with the specified value.
     //Return the original String that was present
+     String d = "";
+     ListNode a = front;
+     if (d == null){
+      throw new NullPointerException("String is null!");
+     }else if (d.equals("")){
+      throw new IllegalArgumentException("Check String!");
+     } else if (index >= size || index < 0){
+      throw new IndexOutOfBoundsException("Check index!");
+     } else{
+       d = a.getData();
+       d.setData(value);
+     }
+     return d;
   } 
   
   public boolean contains(String element){
     //Returns true if this list contains the specified element, false otherwise.
+    if (element == null){
+      throw new NullPointerException("Element is null!");
+    }else if (element.equals("")){
+      throw new IllegalArgumentException("Check element!");
+    }else{
+      for(int i = 0; i < size; i++){
+        if(element.equals(getData())){
+          return true;
+        }
+      }
+    }
+    return false;
   }
   
   public String remove(int index){
     //Removes the element at the specified position in this list.
+    String d = "";
+    if (index < 0 || index >= size()) {
+      throw new IndexOutOfBoundsException("Check index!");
+    } else {
+      if(index == 0) { 
+        d = front;
+      } else {
+          for (int i = 0; i < index - 1; i++) { 
+            front = front.next();
+          }
+          d = front.next();
+          back = front.next().next();
+          front.setNext(back); 
+      }
+    }
+    return d;
   }
   
   public boolean remove(String element){
