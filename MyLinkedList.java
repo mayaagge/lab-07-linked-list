@@ -25,7 +25,7 @@ public class MyLinkedList{
     //Appends the specified element to the end of this list.
     boolean b = false;
     if (front == null){
-      front = newListNode(e);
+      front = new ListNode(e);
     }else{
       ListNode a = front;
       while (a.next() != null){
