@@ -92,8 +92,8 @@ public class MyLinkedList{
      } else if (index >= size || index < 0){
       throw new IndexOutOfBoundsException("Check index!");
      } else{
-       d = a.toString();
-       d.setData(value);
+       d = a.getData();
+       a.setData(value);
      }
      return d;
   } 
