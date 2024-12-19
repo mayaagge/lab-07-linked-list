@@ -31,7 +31,7 @@ public class MyLinkedList{
       while (a.next() != null){
         a = a.next();
       }
-      a.next() = new ListNode(e);
+      a.setNext(new ListNode(e));
       b = true;
     }
     size++;
@@ -69,7 +69,7 @@ public class MyLinkedList{
        for (int i = 0; i < index - 1; i++){
          a = a.next();
        }
-       a.next() = new ListNode(element, a.next());
+       a.setNext(new ListNode(element));
      }
      size++;
   }
@@ -118,7 +118,7 @@ public class MyLinkedList{
       for(int i = 0; i < index - 1; i++){
         a = a.next();
       }
-      a.next() = a.next().next();
+      a.setNext(a.next().next());
     }
     size--;
     return d;
