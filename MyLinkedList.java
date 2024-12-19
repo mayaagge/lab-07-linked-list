@@ -77,20 +77,21 @@ public class MyLinkedList{
    public String set(int index, String value){
     //Replaces the value at the specified index in this list with the specified value.
     //Return the original String that was present
+     ListNode original = new ListNode(value);
      String d = "";
      ListNode a = front;
-     if (d == null){
-      throw new NullPointerException("String is null!");
-     }else if (d.equals("")){
-      throw new IllegalArgumentException("Check String!");
-     } else if (index >= size || index < 0){
-      throw new IndexOutOfBoundsException("Check index!");
+     if (index == 0){
+       this
      } else{
-       d = a.getData();
-       a.setData(value);
+       for(int i = 0; a != null && i < (index-1); i++){
+         a = a.next();
+       }
+       ListNode temp = a.next();
+       a.next() = original;
+       original.next() = temp;
      }
-     return d;
-  } 
+     return original.toString();
+    }
   
   public boolean contains(String element){
     //Returns true if this list contains the specified element, false otherwise.
