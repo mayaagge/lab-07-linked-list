@@ -4,7 +4,7 @@ public class MyLinkedList{
 
   //You will only write the no argument Constructor, as you do not have a capacity.
   public MyLinkedList(){
-    front = new ListNode(null);
+    front = null;
     size = 0;
   }
   
@@ -15,12 +15,8 @@ public class MyLinkedList{
   public String get(int index){
     //Return the value at the specified index.
     ListNode a = front;
-    if (index >= size || index < 0){
-      throw new IndexOutOfBoundsException("Check index!");
-    } else{
-      for (int i = 0; i < index; i++){
-        a = a.next();
-      }
+    for (int i = 0; i < index; i++){
+      a = a.next();
     }
     return a.getData();
   }
@@ -28,20 +24,17 @@ public class MyLinkedList{
   public boolean add(String e){
     //Appends the specified element to the end of this list.
     boolean b = false;
-    ListNode temp = new ListNode(e);
-    ListNode a = front;
-    if (e == null){
-      throw new NullPointerException("Cannot add null!");
-    }else if(e.equals("")){
-      throw new IllegalArgumentException("String cannot be empty!");
+    if (front == null){
+      front = newListNode(e);
     }else{
-      while(a.next() != null){
+      ListNode a = front;
+      while (a.next() != null){
         a = a.next();
       }
-      a.setNext(temp);
-      size++;
+      a.next() = new ListNode(e);
       b = true;
     }
+    size++;
     return b;
   }
 
@@ -69,15 +62,15 @@ public class MyLinkedList{
   
    public void add(int index, String element){
     //Inserts the specified element at the specified position in this list.
-     ListNode temp = new ListNode(element);
-     ListNode a = front;
-     if (a != null){
-       for(int i = 0; i < index && a.next() != null; i++){
+     if (index == 0){
+       front = new ListNode(element);
+     } else{
+       ListNode a = front;
+       for (int i = 0; i < index - 1; i++){
          a = a.next();
        }
+       a.next() = new ListNode(element, a.next());
      }
-     temp.setNext(a.next());
-     a.setNext(temp);
      size++;
   }
   
@@ -117,7 +110,19 @@ public class MyLinkedList{
   
   public String remove(int index){
     //Removes the element at the specified position in this list.
-    String d = "";
+    String d = this.get(index);
+    if (index == 0){
+      front = front.next();
+    }else{
+      ListNode a = front;
+      for(int i = 0; i < index - 1; i++){
+        a = a.next();
+      }
+      a.next() = a.next().next();
+    }
+    size--;
+    return d;
+  }
     if (index < 0 || index >= size()) {
       throw new IndexOutOfBoundsException("Check index!");
     } else {
