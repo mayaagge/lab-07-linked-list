@@ -27,6 +27,7 @@ public class MyLinkedList{
   
   public boolean add(String e){
     //Appends the specified element to the end of this list.
+    boolean b = false;
     ListNode temp = new ListNode(e);
     ListNode a = front;
     if (e == null){
@@ -39,9 +40,9 @@ public class MyLinkedList{
       }
       a.setNext(temp);
       size++;
-      return true;
+      b = true;
     }
-    return false;
+    return b;
   }
 
   public String toString(){
