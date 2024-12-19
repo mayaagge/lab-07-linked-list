@@ -14,10 +14,10 @@ public class MyLinkedList{
   }
   public String get(int index){
     //Return the value at the specified index.
+    ListNode a = front;
     if (index >= size || index < 0){
       throw new IndexOutOfBoundsException("Check index!");
     } else{
-      ListNode a = front;
       for (int i = 0; i < index; i++){
         a = a.next();
       }
@@ -31,7 +31,7 @@ public class MyLinkedList{
     ListNode a = front;
     if (e == null){
       throw new NullPointerException("Cannot add null!");
-    }else if(s.equals("")){
+    }else if(e.equals("")){
       throw new IllegalArgumentException("String cannot be empty!");
     }else{
       while(a.next() != null){
@@ -106,7 +106,7 @@ public class MyLinkedList{
       throw new IllegalArgumentException("Check element!");
     }else{
       for(int i = 0; i < size; i++){
-        if(element.equals(getData())){
+        if(element.equals(get(i)){
           return true;
         }
       }
@@ -121,12 +121,12 @@ public class MyLinkedList{
       throw new IndexOutOfBoundsException("Check index!");
     } else {
       if(index == 0) { 
-        d = front;
+        d = front.toString();
       } else {
           for (int i = 0; i < index - 1; i++) { 
             front = front.next();
           }
-          d = front.next();
+          d = front.next().toString();
           back = front.next().next();
           front.setNext(back); 
       }
@@ -136,22 +136,25 @@ public class MyLinkedList{
   
   public boolean remove(String element){
     //Removes the first occurrence of the specified element from this list, if it is present.
-    if (index <= 0 || index > size()){
-      return false;
-    }
-    if (index == 1){
-      front = front.next();
-    }
     ListNode a = front;
-    for(int i = 0; i < index; i++){
-      if (a.next() == null){
-        return false;
+    ListNode b = null;
+    if (element == null){
+      throw new NullPointerException("Element is null!");
+    }else if (element.equals("")){
+      throw new IllegalArgumentException("Check element!");
+    }else{
+      for(int i = 0; i < size; i++){
+        if(a.getData().equals(element)){
+          b.next() = a.next();
+          a = null;
+          size--;
+          return true;
+        }
+        b = a;
+        a = a.next();
       }
-      a = a.next();
     }
-    a.setNext(a.next().next());
-    size--;
-    return true;
+    return false;
   }
   
 }
