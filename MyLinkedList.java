@@ -145,8 +145,7 @@ public class MyLinkedList{
     }else{
       for(int i = 0; i < size; i++){
         if(a.getData().equals(element)){
-          String temp = b.next();
-          temp = a.next();
+          b.setNext(a.next());
           a = null;
           size--;
           return true;
