@@ -33,12 +33,12 @@ public class Driver{
       // Remove by index
       String removedElement = list.remove(0);
       System.out.println("Removed element: " + removedElement); // Expected: Y
-      System.out.println("List after removal by index: " + list.toString()); // Expected: [Z, B, C]
+      System.out.println("List after removal by index 0: " + list.toString()); // Expected: [Z, B, C]
 
       // Remove by element
       boolean isRemoved = list.remove("Z");
       System.out.println("Z was removed: " + isRemoved); // Expected: true
-      System.out.println("List after removal by element: " + list.toString()); // Expected: [B, C]
+      System.out.println("List after removal by element Z: " + list.toString()); // Expected: [B, C]
 
       // Empty List
       list = new MyLinkedList();
