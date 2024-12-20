@@ -87,8 +87,8 @@ public class MyLinkedList{
          a = a.next();
        }
        ListNode temp = a.next();
-       a.next() = original;
-       original.next() = temp;
+       a.setNext(original);
+       original.setNext(temp);
      }
      return original.toString();
     }
