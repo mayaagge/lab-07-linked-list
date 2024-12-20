@@ -1,3 +1,5 @@
+import org.w3c.dom.Node;
+
 public class MyLinkedList{
   private int size;
   private ListNode front,back;
@@ -5,6 +7,7 @@ public class MyLinkedList{
   //You will only write the no argument Constructor, as you do not have a capacity.
   public MyLinkedList(){
     front = null;
+    back = null;
     size = 0;
   }
   
@@ -23,53 +26,61 @@ public class MyLinkedList{
   
   public boolean add(String e){
     //Appends the specified element to the end of this list.
-    boolean b = false;
-    if (front == null){
-      front = new ListNode(e);
+    ListNode a = new ListNode(e);
+    if (size == 0){
+      front = a;
+      back = a;
     }else{
-      ListNode a = front;
-      while (a.next() != null){
-        a = a.next();
-      }
-      a.setNext(new ListNode(e));
-      b = true;
+      back.setNext(a);
+      back = a;
     }
     size++;
-    return b;
+    return true;
   }
 
   public String toString(){
     //same format as ArrayList "[A, B, C]" or "[]"
-    String d = "";
     ListNode a = front;
+    if (a == null){
+      return "[]";
+    }
+    String d = "[" + a.getData();
+    a = a.next();
     while(a != null){
-      d += "[" + a.getData() + "]";
+      d += ", " + a.getData();
       a = a.next();
     }
+    d += "]";
     return d;
   }
 
   public String toStringReversed(){
-    //same as toString, but iterate from the back, using prev() "[C, B, A]" or "[]"
-    String d = "";
-    ListNode a = back;
-    while(a != null){
-      d += "[" + a.getData() + "]";
-      a = a.prev();
+    //same as toString, but iterate from the back, using prev() "[C, B, A]" or "[]"    
+    String result = "["; 
+    for (int i = size-1; i>=0; i--){
+      if(i==0){
+        result += this.get(i) + "]";
+      }
+      else{
+        result += this.get(i) + ", ";
+      }
     }
-    return d;
+    return result;
   }
   
    public void add(int index, String element){
     //Inserts the specified element at the specified position in this list.
+    ListNode d = new ListNode(element);
      if (index == 0){
-       front = new ListNode(element);
+       d.setNext(front);
+       front = d;
      } else{
        ListNode a = front;
        for (int i = 0; i < index - 1; i++){
          a = a.next();
        }
-       a.setNext(new ListNode(element));
+       d.setNext(a.next());
+       a.setNext(d);
      }
      size++;
   }
@@ -77,20 +88,14 @@ public class MyLinkedList{
    public String set(int index, String value){
     //Replaces the value at the specified index in this list with the specified value.
     //Return the original String that was present
-     ListNode original = new ListNode(value);
-     String d = "";
-     ListNode a = front;
-     if (index == 0){
-       front = new ListNode(value);
-     } else{
-       for(int i = 0; a != null && i < (index-1); i++){
-         a = a.next();
-       }
-       ListNode temp = a.next();
-       a.setNext(original);
-       original.setNext(temp);
-     }
-     return original.toString();
+      ListNode current = front;
+      for (int i = 0; i < index; i++) {
+        current = current.next();
+      }
+
+      String oldValue = current.getData();
+      current.setData(value);
+      return oldValue;
     }
   
   public boolean contains(String element){
@@ -125,8 +130,11 @@ public class MyLinkedList{
     ListNode b = null;
     for(int i = 0; i < size; i++){
       if(a.getData().equals(element)){
-        b.setNext(a.next());
-        a = null;
+        if(b == null){
+          front = a.next();
+        }else{
+          b.setNext(a.next());
+        }
         size--;
         return true;
       }
