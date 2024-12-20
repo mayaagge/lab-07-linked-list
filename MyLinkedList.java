@@ -81,7 +81,7 @@ public class MyLinkedList{
      String d = "";
      ListNode a = front;
      if (index == 0){
-       this
+       front = new ListNode(value);
      } else{
        for(int i = 0; a != null && i < (index-1); i++){
          a = a.next();
@@ -95,19 +95,13 @@ public class MyLinkedList{
   
   public boolean contains(String element){
     //Returns true if this list contains the specified element, false otherwise.
-    if (element == null){
-      throw new NullPointerException("Element is null!");
-    }else if (element.equals("")){
-      throw new IllegalArgumentException("Check element!");
-    }else{
-      for(int i = 0; i < size; i++){
-        if(element.equals(get(i))){
-          return true;
-        }
+    for(int i = 0; i < size; i++){
+      if(element.equals(get(i))){
+        return true;
       }
     }
     return false;
-  }
+    }
   
   public String remove(int index){
     //Removes the element at the specified position in this list.
@@ -129,21 +123,15 @@ public class MyLinkedList{
     //Removes the first occurrence of the specified element from this list, if it is present.
     ListNode a = front;
     ListNode b = null;
-    if (element == null){
-      throw new NullPointerException("Element is null!");
-    }else if (element.equals("")){
-      throw new IllegalArgumentException("Check element!");
-    }else{
-      for(int i = 0; i < size; i++){
-        if(a.getData().equals(element)){
-          b.setNext(a.next());
-          a = null;
-          size--;
-          return true;
-        }
-        b = a;
-        a = a.next();
+    for(int i = 0; i < size; i++){
+      if(a.getData().equals(element)){
+        b.setNext(a.next());
+        a = null;
+        size--;
+        return true;
       }
+      b = a;
+      a = a.next();
     }
     return false;
   }
