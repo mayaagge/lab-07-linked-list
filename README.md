@@ -19,42 +19,40 @@ Save your diagrams in the folder images and then add those images to this file.
 
 1. An empty list
 
-**YOUR DIAGRAM HERE**
-
- ![Number4](images/Number4.png?raw=true "Number4" ) 
+ ![Number1](images/Number1.png?raw=true "Number1" ) 
 
 2. A list with one element
   
-**YOUR DIAGRAM HERE**
+ ![Number2](images/Number2.png?raw=true "Number2" ) 
 
 3. A list with two elements
 
-**YOUR DIAGRAM HERE**
+ ![Number3](images/Number3.png?raw=true "Number3" ) 
 
 4. Adding an element to an empty list
 
-**YOUR DIAGRAM HERE**
+ ![Number4](images/Number4.png?raw=true "Number4" )
 
-5. Adding an element to the head of a non-empty list
+6. Adding an element to the head of a non-empty list
 
-**YOUR DIAGRAM HERE**
+ ![Number5](images/Number5.png?raw=true "Number5" ) 
 
 6. Adding an element to the tail of a non-empty list
 
-**YOUR DIAGRAM HERE**
+ ![Number6](images/Number6.png?raw=true "Number6" ) 
 
 7. Adding an element to the middle of a non-empty list
 
-**YOUR DIAGRAM HERE**
+ ![Number7](images/Number7.png?raw=true "Number7" ) 
 
 8. Remove the head element of a non-empty list
 
-**YOUR DIAGRAM HERE**
+ ![Number8](images/Number8.png?raw=true "Number8" ) 
 
 9. Remove the last element of a non-empty list
 
-**YOUR DIAGRAM HERE**
+ ![Number9](images/Number9.png?raw=true "Number9" ) 
 
 10. Remove an element from the middle of a non-empty list
 
-**YOUR DIAGRAM HERE**
+ ![Number10](images/Number10.png?raw=true "Number10" ) 
